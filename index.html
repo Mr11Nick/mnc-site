@@ -71,6 +71,7 @@
         .logo img {
             height: 40px;
             transition: transform 0.3s ease;
+            filter: invert(1); /* Инвертируем логотип в белый цвет */
         }
 
         .logo:hover img {
@@ -149,6 +150,16 @@
         .hero-content {
             max-width: 700px;
             z-index: 1;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .hero-icon {
+            font-size: 5rem;
+            margin-bottom: 30px;
+            color: var(--accent-color);
+            opacity: 0;
+            animation: fadeInUp 1s forwards 0.3s;
         }
 
         .hero h2 {
@@ -269,20 +280,23 @@
             color: var(--light-gray);
         }
 
-        .about-image {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        .about-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
         }
 
-        .about-image img {
-            width: 100%;
-            height: auto;
-            transition: transform 0.5s ease;
+        .about-icon img {
+            width: 300px;
+            height: 300px;
+            filter: invert(1); /* Инвертируем иконку в белый цвет */
+            opacity: 0.8;
+            transition: all 0.5s ease;
         }
 
-        .about-image:hover img {
+        .about-icon img:hover {
+            opacity: 1;
             transform: scale(1.05);
         }
 
@@ -398,6 +412,26 @@
             font-size: 0.95rem;
         }
 
+        .protection-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .protection-icon img {
+            width: 300px;
+            height: 300px;
+            filter: invert(1); /* Инвертируем иконку в белый цвет */
+            opacity: 0.8;
+            transition: all 0.5s ease;
+        }
+
+        .protection-icon img:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
         /* Контакты */
         .contact {
             background-color: var(--primary-black);
@@ -494,6 +528,7 @@
 
         .footer-logo img {
             height: 30px;
+            filter: invert(1); /* Инвертируем логотип в белый цвет */
         }
 
         .footer-logo h2 {
@@ -553,6 +588,12 @@
             .hero h2 {
                 font-size: 2.8rem;
             }
+            
+            .about-icon img,
+            .protection-icon img {
+                width: 250px;
+                height: 250px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -576,6 +617,12 @@
             .stats {
                 grid-template-columns: 1fr;
             }
+            
+            .about-icon img,
+            .protection-icon img {
+                width: 200px;
+                height: 200px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -586,6 +633,16 @@
             .hero h2 {
                 font-size: 1.8rem;
             }
+            
+            .hero-icon {
+                font-size: 4rem;
+            }
+            
+            .about-icon img,
+            .protection-icon img {
+                width: 150px;
+                height: 150px;
+            }
         }
     </style>
 </head>
@@ -595,7 +652,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIwIDBDOC45NTQgMCAwIDguOTU0IDAgMjBDMCAzMS4wNDYgOC45NTQgNDAgMjAgNDBDMzEuMDQ2IDQwIDQwIDMxLjA0NiA0MCAyMEM0MCA4Ljk1NCAzMS4wNDYgMCAyMCAwWk0yMCAzNkMxMS4xNjMgMzYgNCAyOC44MzcgNCAyMEM0IDExLjE2MyAxMS4xNjMgNCAyMCA0QzI4LjgzNyA0IDM2IDExLjE2MyAzNiAyMEMzNiAyOC44MzcgMjguODM3IDM2IDIwIDM2WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTE2IDEySDEwVjI4SDE2VjI2SDEyVjE0SDE2VjEyWiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTMwIDEySDI0VjI4SDMwVjI2SDI2VjE0SDMwVjEyWiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+" alt="SecureLife Logo">
+                    <img src="logo.png" alt="SecureLife Logo">
                     <h1>SECURELIFE</h1>
                 </div>
                 <nav>
@@ -615,6 +672,9 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
+                <div class="hero-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
                 <h2>Защитите свою цифровую жизнь</h2>
                 <p>В современном мире информационная безопасность - не роскошь, а необходимость. Узнайте, как защитить свои данные, приватность и цифровую идентичность от киберугроз.</p>
                 <a href="#protection" class="btn">Начать защищаться</a>
@@ -653,8 +713,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Кибербезопасность">
+                <div class="about-icon">
+                    <img src="about.jpg" alt="Информационная безопасность">
                 </div>
             </div>
         </div>
@@ -764,8 +824,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Защита данных">
+                <div class="protection-icon">
+                    <img src="protection.jpg" alt="Защита данных">
                 </div>
             </div>
         </div>
@@ -836,7 +896,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIwIDBDOC45NTQgMCAwIDguOTU0IDAgMjBDMCAzMS4wNDYgOC45NTQgNDAgMjAgNDBDMzEuMDQ2IDQwIDQwIDMxLjA0NiA0MCAyMEM0MCA4Ljk1NCAzMS4wNDYgMCAyMCAwWk0yMCAzNkMxMS4xNjMgMzYgNCAyOC44MzcgNCAyMEM0IDExLjE2MyAxMS4xNjMgNCAyMCA0QzI4LjgzNyA0IDM2IDExLjE2MyAzNiAyMEMzNiAyOC44MzcgMjguODM3IDM2IDIwIDM2WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTE2IDEySDEwVjI4SDE2VjI2SDEyVjE0SDE2VjEyWiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTMwIDEySDI0VjI4SDMwVjI2SDI2VjE0SDMwVjEyWiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+" alt="SecureLife Logo">
+                    <img src="logo.png" alt="SecureLife Logo">
                     <h2>SECURELIFE</h2>
                 </div>
                 <div class="social-links">
